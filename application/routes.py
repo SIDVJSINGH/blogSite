@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from datetime import datetime
 from application import app, db
 
@@ -48,3 +48,11 @@ def contact():
             return render_template("error_page.html")
 
     return render_template("contact.html")
+
+
+@app.get('/<name>/delete/')
+# OR
+# @app.route('/<name>/delete/', methods=['POST'])
+def delete(name):
+    db.blogContacts.delete_many({"name": name})
+    return redirect('/', code=302)
