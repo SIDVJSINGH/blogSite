@@ -1,19 +1,26 @@
 from flask import Flask
 from flask_pymongo import PyMongo
 
+import json
 
+# local_server = False
+# with open("config.json", "r") as file:
+#     params = json.load(file)["params"]
+#
 # create the app
 app = Flask(__name__)
-# local mongodb uri
-app.config["MONGO_URI"] = "mongodb://localhost:27017/blogsite"
+# if local_server:
+#     app.config["MONGO_URI"] = params["local_uri"]
+# else:
+#     app.config["MONGO_URI"] = params["atlas_uri"]
 
-# Atlas connection
-# app.secret_key = "1random2string3"
-# app.config["MONGO_URI"] = "mongodb+srv://sidvjsingh:c2pXPjr26wK5a3kj@mongodb.enotrvk.mongodb.net/codersblog?retryWrites=true&w=majority"
-
+app.config["MONGO_URI"] = "mongodb://sidvjsingh:c2pXPjr26wK5a3kj@mongodb.mongodb.net/codersblog?authSource=admin"
 # create the extension and initialize it
 mongo = PyMongo(app)
-db = mongo.db
+# for local
+db = mongo.db.blogcontacts
+# for atlas
+# db = mongo.db.blogcontacts
 
 
 from application import routes

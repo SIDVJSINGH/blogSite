@@ -1,0 +1,10 @@
+{
+  "params": {
+    "local_server": "True",
+    "local_uri": "mongodb://localhost:27017/blogsite",
+    "prod_uri": "mongodb+srv://sidvjsingh:c2pXPjr26wK5a3kj@mongodb.enotrvk.mongodb.net/codersblog?retryWrites=true&w=majority",
+    "atlas_uri": "mongodb://sidvjsingh:c2pXPjr26wK5a3kj@mongodb.mongodb.net/codersblog?authSource=admin"
+
+
+  }
+}

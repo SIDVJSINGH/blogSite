@@ -37,7 +37,7 @@ def contact():
         phone = request.form.get('phone')
         message = request.form.get('message')
         try:
-            db.blogContacts.insert_one({
+            db.insert_one({
                 "date": datetime.now(),
                 "name": name,
                 "email": email,
@@ -50,9 +50,14 @@ def contact():
     return render_template("contact.html")
 
 
-@app.get('/<name>/delete/')
-# OR
-# @app.route('/<name>/delete/', methods=['POST'])
-def delete(name):
-    db.blogContacts.delete_many({"name": name})
-    return redirect('/', code=302)
+# @app.post('/<name>/delete/')
+# # working = @app.get request
+# # OR
+# # @app.route('/<name>/delete/', methods=['POST'])
+# def delete(name):
+#     db.delete_many({"name": name})
+#     return redirect('/', code=302)
+
+@app.get('/delete')
+def delete_page():
+    return render_template("delete_page.html")

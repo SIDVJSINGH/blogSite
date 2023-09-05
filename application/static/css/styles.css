@@ -3747,7 +3747,7 @@ textarea.form-control-lg {
 }
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
-    transition: none;
+    transition: none ;
   }
 }
 .navbar-toggler:hover {
